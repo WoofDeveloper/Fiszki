@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="Fiszki.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:sf="clr-namespace:Syncfusion.Maui.Toolkit.SegmentedControl;assembly=Syncfusion.Maui.Toolkit"
+    xmlns:pages="clr-namespace:Fiszki.Pages"
+    Shell.FlyoutBehavior="Disabled"
+    Title="Fiszki">
+
+    <ShellContent
+        Title="Fiszki"
+        ContentTemplate="{DataTemplate pages:FlashcardListPage}"
+        Route="flashcards" />
+
+</Shell>

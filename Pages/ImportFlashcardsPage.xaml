@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pagemodels="clr-namespace:Fiszki.PageModels"
+             x:Class="Fiszki.Pages.ImportFlashcardsPage"
+             x:DataType="pagemodels:ImportFlashcardsPageModel"
+             Title="Import JSON">
+    
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="20">
+            
+            <Label Text="Import Fiszek z JSON"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   HorizontalOptions="Center"/>
+
+            <Frame BorderColor="LightGray" 
+                   CornerRadius="10" 
+                   Padding="15">
+                <Editor Text="{Binding JsonContent}"
+                        Placeholder="Wklej JSON tutaj..."
+                        HeightRequest="250"
+                        FontSize="12"/>
+            </Frame>
+
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                <Button Text="Wczytaj plik"
+                        Command="{Binding PickFileCommand}"
+                        BackgroundColor="#9C27B0"
+                        TextColor="White"
+                        CornerRadius="10"/>
+                
+                <Button Text="Przyklad"
+                        Command="{Binding LoadSampleCommand}"
+                        BackgroundColor="Gray"
+                        TextColor="White"
+                        CornerRadius="10"/>
+            </HorizontalStackLayout>
+
+            <Frame BorderColor="#4CAF50" 
+                   CornerRadius="10" 
+                   Padding="15"
+                   BackgroundColor="#E8F5E9"
+                   IsVisible="{Binding ShowResult}">
+                <Label Text="{Binding ResultMessage}"
+                       FontSize="14"
+                       FontAttributes="Bold"
+                       TextColor="#2E7D32"
+                       HorizontalOptions="Center"/>
+            </Frame>
+
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10" Margin="0,20,0,0">
+                <Button Grid.Column="0"
+                        Text="Anuluj"
+                        Command="{Binding CancelCommand}"
+                        BackgroundColor="Gray"
+                        TextColor="White"
+                        CornerRadius="10"
+                        HeightRequest="50"/>
+                
+                <Button Grid.Column="1"
+                        Text="Importuj"
+                        Command="{Binding ImportCommand}"
+                        BackgroundColor="#4CAF50"
+                        TextColor="White"
+                        CornerRadius="10"
+                        HeightRequest="50"/>
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

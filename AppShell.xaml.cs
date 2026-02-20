@@ -1,0 +1,51 @@
+﻿using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Maui.Core;
+using Font = Microsoft.Maui.Font;
+
+namespace Fiszki
+{
+    public partial class AppShell : Shell
+    {
+        public AppShell()
+        {
+            InitializeComponent();
+
+            Routing.RegisterRoute("addflashcard", typeof(Pages.AddFlashcardPage));
+            Routing.RegisterRoute("learn", typeof(Pages.LearnPage));
+            Routing.RegisterRoute("importflashcards", typeof(Pages.ImportFlashcardsPage));
+            Routing.RegisterRoute("learningconfig", typeof(Pages.LearningConfigPage));
+            Routing.RegisterRoute("statistics", typeof(Pages.StatisticsPage));
+        }
+
+        public static async Task DisplaySnackbarAsync(string message)
+        {
+            CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+
+            var snackbarOptions = new SnackbarOptions
+            {
+                BackgroundColor = Color.FromArgb("#FF3300"),
+                TextColor = Colors.White,
+                ActionButtonTextColor = Colors.Yellow,
+                CornerRadius = new CornerRadius(0),
+                Font = Font.SystemFontOfSize(18),
+                ActionButtonFont = Font.SystemFontOfSize(14)
+            };
+
+            var snackbar = Snackbar.Make(message, visualOptions: snackbarOptions);
+
+            await snackbar.Show(cancellationTokenSource.Token);
+        }
+
+        public static async Task DisplayToastAsync(string message)
+        {
+            if (OperatingSystem.IsWindows())
+                return;
+
+            var toast = Toast.Make(message, textSize: 18);
+
+            var cts = new CancellationTokenSource(TimeSpan.FromSeconds(5));
+            await toast.Show(cts.Token);
+        }
+    }
+}
+

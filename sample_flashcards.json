@@ -1,0 +1,94 @@
+{
+  "flashcards": [
+    {
+      "englishWord": "hello",
+      "polishTranslation": "cześć",
+      "example": "Hello, how are you?",
+      "category": "Ogólne"
+    },
+    {
+      "englishWord": "run",
+      "polishTranslation": "biegać",
+      "example": "I run every morning.",
+      "category": "Czasowniki"
+    },
+    {
+      "englishWord": "book",
+      "polishTranslation": "książka",
+      "example": "I'm reading a book.",
+      "category": "Rzeczowniki"
+    },
+    {
+      "englishWord": "beautiful",
+      "polishTranslation": "piękny",
+      "example": "What a beautiful day!",
+      "category": "Przymiotniki"
+    },
+    {
+      "englishWord": "thank you",
+      "polishTranslation": "dziękuję",
+      "example": "Thank you very much!",
+      "category": "Zwroty"
+    },
+    {
+      "englishWord": "water",
+      "polishTranslation": "woda",
+      "example": "Can I have some water?",
+      "category": "Rzeczowniki"
+    },
+    {
+      "englishWord": "eat",
+      "polishTranslation": "jeść",
+      "example": "Let's eat dinner.",
+      "category": "Czasowniki"
+    },
+    {
+      "englishWord": "happy",
+      "polishTranslation": "szczęśliwy",
+      "example": "I'm so happy today!",
+      "category": "Przymiotniki"
+    },
+    {
+      "englishWord": "goodbye",
+      "polishTranslation": "do widzenia",
+      "example": "Goodbye! See you later.",
+      "category": "Zwroty"
+    },
+    {
+      "englishWord": "sleep",
+      "polishTranslation": "spać",
+      "example": "I need to sleep.",
+      "category": "Czasowniki"
+    },
+    {
+      "englishWord": "house",
+      "polishTranslation": "dom",
+      "example": "This is my house.",
+      "category": "Rzeczowniki"
+    },
+    {
+      "englishWord": "big",
+      "polishTranslation": "duży",
+      "example": "This is a big car.",
+      "category": "Przymiotniki"
+    },
+    {
+      "englishWord": "how are you",
+      "polishTranslation": "jak się masz",
+      "example": "Hi! How are you?",
+      "category": "Zwroty"
+    },
+    {
+      "englishWord": "learn",
+      "polishTranslation": "uczyć się",
+      "example": "I learn English every day.",
+      "category": "Czasowniki"
+    },
+    {
+      "englishWord": "friend",
+      "polishTranslation": "przyjaciel",
+      "example": "She is my best friend.",
+      "category": "Rzeczowniki"
+    }
+  ]
+}
