@@ -5,7 +5,7 @@ namespace Fiszki.Services;
 
 public class UpdateService
 {
-    private const string UPDATE_CHECK_URL = "https://raw.githubusercontent.com/twoj-username/fiszki-updates/main/version.json";
+    private const string UPDATE_CHECK_URL = "https://github.com/WoofDeveloper/fiszki-updates/blob/main/version.json";
     private readonly HttpClient _httpClient;
 
     public UpdateService()
