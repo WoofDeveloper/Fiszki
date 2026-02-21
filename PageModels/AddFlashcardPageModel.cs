@@ -87,7 +87,7 @@ public partial class AddFlashcardPageModel : ObservableObject, IQueryAttributabl
     {
         if (string.IsNullOrWhiteSpace(EnglishWord) || string.IsNullOrWhiteSpace(PolishTranslation))
         {
-            await Shell.Current.DisplayAlert("Blad", "Wypelnij wymagane pola (slowo angielskie i tlumaczenie)", "OK");
+            await Shell.Current.DisplayAlertAsync("Blad", "Wypelnij wymagane pola (slowo angielskie i tlumaczenie)", "OK");
             return;
         }
 

@@ -33,7 +33,7 @@ public partial class ImportFlashcardsPageModel : ObservableObject
     {
         if (string.IsNullOrWhiteSpace(JsonContent))
         {
-            await Shell.Current.DisplayAlert("Blad", "Wpisz dane JSON", "OK");
+            await Shell.Current.DisplayAlertAsync("Blad", "Wpisz dane JSON", "OK");
             return;
         }
 
@@ -75,7 +75,7 @@ public partial class ImportFlashcardsPageModel : ObservableObject
         }
         catch (Exception ex)
         {
-            await Shell.Current.DisplayAlert("Blad", $"Nie udalo sie wczytac pliku: {ex.Message}", "OK");
+            await Shell.Current.DisplayAlertAsync("Blad", $"Nie udalo sie wczytac pliku: {ex.Message}", "OK");
         }
     }
 

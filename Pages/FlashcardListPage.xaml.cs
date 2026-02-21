@@ -16,6 +16,8 @@ public partial class FlashcardListPage : ContentPage
     protected override async void OnAppearing()
     {
         base.OnAppearing();
+        System.Diagnostics.Debug.WriteLine("🌟 FlashcardListPage.OnAppearing() - strona się pokazuje");
         await _viewModel.InitializeAsync();
+        System.Diagnostics.Debug.WriteLine("✅ FlashcardListPage.OnAppearing() - InitializeAsync zakończone");
     }
 }

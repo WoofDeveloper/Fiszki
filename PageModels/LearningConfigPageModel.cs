@@ -101,7 +101,7 @@ public partial class LearningConfigPageModel : ObservableObject
     {
         if (TotalAvailable == 0)
         {
-            await Shell.Current.DisplayAlert("Brak fiszek", "Brak dostepnych fiszek do nauki w wybranej kategorii", "OK");
+            await Shell.Current.DisplayAlertAsync("Brak fiszek", "Brak dostepnych fiszek do nauki w wybranej kategorii", "OK");
             return;
         }
 

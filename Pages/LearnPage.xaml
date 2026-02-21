@@ -107,7 +107,7 @@
 
                 <Grid ColumnDefinitions="*,*" ColumnSpacing="15">
                     <Button Grid.Column="0"
-                            Text="❌ Nie znałem"
+                            Text="❌ Nie znam"
                             Command="{Binding MarkAsIncorrectCommand}"
                             BackgroundColor="#EF5350"
                             TextColor="White"
@@ -117,7 +117,7 @@
                             FontAttributes="Bold"/>
 
                     <Button Grid.Column="1"
-                            Text="✅ Znałem"
+                            Text="✅ Znam"
                             Command="{Binding MarkAsCorrectCommand}"
                             BackgroundColor="#66BB6A"
                             TextColor="White"

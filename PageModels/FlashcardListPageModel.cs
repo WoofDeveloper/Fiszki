@@ -43,33 +43,51 @@ public partial class FlashcardListPageModel : ObservableObject
 
     public async Task InitializeAsync()
     {
+        System.Diagnostics.Debug.WriteLine("🔧 FlashcardListPageModel.InitializeAsync() START");
         await LoadCategoriesAsync();
+        System.Diagnostics.Debug.WriteLine("📂 Kategorie załadowane");
         await LoadFlashcardsAsync();
+        System.Diagnostics.Debug.WriteLine("📚 Fiszki załadowane");
         await CheckForUpdatesAsync();
+        System.Diagnostics.Debug.WriteLine("🔧 FlashcardListPageModel.InitializeAsync() KONIEC");
     }
 
     private async Task CheckForUpdatesAsync()
     {
         try
         {
+            System.Diagnostics.Debug.WriteLine("🚀 FlashcardListPageModel: Rozpoczynam sprawdzanie aktualizacji...");
+
             var update = await _updateService.CheckForUpdatesAsync();
+
+            System.Diagnostics.Debug.WriteLine($"📦 Wynik sprawdzenia: {(update != null ? "JEST AKTUALIZACJA" : "Brak aktualizacji")}");
+
             if (update != null)
             {
-                bool answer = await Shell.Current.DisplayAlert(
-                    "Dostepna aktualizacja!",
-                    $"Wersja {update.Version} jest dostępna!\n\n{update.ReleaseNotes}\n\nCzy chcesz pobrac aktualizacje?",
+                System.Diagnostics.Debug.WriteLine($"💬 Pokazuję dialog dla wersji: {update.Version}");
+
+                bool answer = await Shell.Current.DisplayAlertAsync(
+                    "Dostępna aktualizacja!",
+                    $"Wersja {update.Version} jest dostępna!\n\n{update.ReleaseNotes}\n\nCzy chcesz pobrać aktualizację?",
                     "Tak",
-                    "Pozniej");
+                    "Później");
+
+                System.Diagnostics.Debug.WriteLine($"👆 Użytkownik wybrał: {(answer ? "TAK" : "PÓŹNIEJ")}");
 
                 if (answer)
                 {
                     await _updateService.DownloadAndInstallUpdateAsync(update.DownloadUrl);
                 }
             }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine("✅ Brak dostępnych aktualizacji - nie pokazuję dialogu");
+            }
         }
-        catch
+        catch (Exception ex)
         {
-            // Cicha ignoracja błędów sprawdzania aktualizacji
+            System.Diagnostics.Debug.WriteLine($"❌ BŁĄD w CheckForUpdatesAsync: {ex.Message}");
+            System.Diagnostics.Debug.WriteLine($"❌ Stack: {ex.StackTrace}");
         }
     }
 
@@ -126,7 +144,7 @@ public partial class FlashcardListPageModel : ObservableObject
     [RelayCommand]
     private async Task DeleteFlashcardAsync(Flashcard flashcard)
     {
-        bool answer = await Shell.Current.DisplayAlert(
+        bool answer = await Shell.Current.DisplayAlertAsync(
             "Usun fiszke", 
             $"Czy na pewno chcesz usunac fiszke '{flashcard.EnglishWord}'?", 
             "Tak", 
@@ -144,7 +162,7 @@ public partial class FlashcardListPageModel : ObservableObject
     {
         if (TotalCount == 0)
         {
-            await Shell.Current.DisplayAlert("Brak fiszek", "Dodaj najpierw kilka fiszek do nauki!", "OK");
+            await Shell.Current.DisplayAlertAsync("Brak fiszek", "Dodaj najpierw kilka fiszek do nauki!", "OK");
             return;
         }
 
